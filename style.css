@@ -1,0 +1,549 @@
+@charset "utf-8";
+
+/*
+Theme Name: myblog
+Author: yuno kawamitsu
+Description: WordPressを学んで、最初のテーマです。
+Version: 1.0
+Requires at least: 6.0
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://kawayuno.pinoko.jp/myblog/
+Text Domain: myblog
+*/
+
+/* 共有部分
+--------------------------------*/
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #2A2A2A;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.inner {
+    width: 100%;
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* header */
+header h1 {
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+}
+
+header {
+    padding: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 190px;
+}
+
+.logo {
+    width: 142px;
+    position: absolute;
+    left: 40px;
+}
+
+.menu {
+    width: 130px;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+}
+
+.menu_open {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 40%;
+    height: 100vh;
+
+    background-color: #2A2A2A;
+
+    z-index: 100;
+
+    display: none;
+}
+
+.menu_close {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    color: white;
+    font-size: 140px;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.menu_open nav {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.menu_open nav a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: #FF4A8C;
+    text-decoration: none;
+    font-size: 42px;
+    letter-spacing: 8px;
+}
+
+/* page */
+.page .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page .star {
+    width: 55px;
+}
+
+.page .circle {
+    width: 35px;
+    margin-left: 15px;
+    margin-top: 6px;
+}
+
+.Category a {
+    font-size: 24px;
+}
+
+/* Profile */
+.Profile h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 45px;
+}
+
+.Profile .Profile_img {
+    display: flex;
+    justify-content: center;
+}
+
+.Profile img {
+    width: 130px;
+    border: 4px solid #FF4A8C;
+    margin-bottom: 35px;
+}
+
+.Profile p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* footer */
+footer p {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+/*index.html
+--------------------------------*/
+/* Blog */
+.Blog h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.Blog_article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.article_none {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+article img {
+    width: 100%;
+    margin-bottom: 15px;
+    border: 5px solid #FF4A8C;
+    box-sizing: border-box;
+}
+
+.Blog p {
+    font-size: 20px;
+    margin-left: 15px;
+    margin-bottom: 45px;
+}
+
+.Blog h3 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+.Blog a {
+    font-weight: bold;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    border: 5px solid #FF4A8C;
+    color: #fff;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 60px;
+}
+
+/* Category */
+.Category h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 45px;
+}
+
+.Category .category_nav {
+    display: flex;
+    gap: 70px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 280px;
+}
+
+.Category .button {
+    background-color: #FF4A8C;
+    padding: 15px 90px;
+}
+
+/* comment */
+.index_comment h3 {
+    font-size: 32px;
+    margin-left: 165px;
+    margin-bottom: 7px;
+}
+
+.index_comment .index_post {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+/* form {
+    width: 75%;
+    height: 340px;
+    border: 5px solid #ff4f9a;
+    position: relative;
+} */
+
+form input[type="text"] {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    padding: 20px;
+}
+
+form input[type="submit"] {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+}
+
+textarea {
+    width: 100%;
+    height: 330px;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+/* search */
+.searchform .inner {
+    display: flex;
+    justify-content: center;
+}
+
+.searchform {
+    width: 40%;
+    height: 50px;
+    border: 5px solid #ff4f9a;
+    position: relative;
+}
+
+.searchform .search-submit {
+    font-size: 25px;
+    padding: 20px;
+}
+
+/*single.html
+--------------------------------*/
+/* Blog */
+.blog_single h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.blog_single p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.blog_single h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.blog_single img {
+    border: 4px solid #FF4A8C;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+/* comment */
+/* .comment h2 {
+    font-size: 32px;
+    margin-left: 165px;
+    margin-bottom: 7px;
+}
+
+.comment {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+} */
+
+/*メディアクエリ
+--------------------------------*/
+@media (640px > width) {
+    .inner {
+        width: 87.5%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*index.html
+--------------------------------*/
+    /* header */
+    header h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    header {
+        padding: 20px;
+        margin-bottom: 60px;
+    }
+
+    .logo {
+        width: 71px;
+        position: absolute;
+        left: 20px;
+    }
+
+    .menu {
+        width: 65px;
+        position: absolute;
+        top: 5px;
+        right: 20px;
+    }
+
+    .menu_close {
+        font-size: 70px;
+    }
+
+    .menu_open nav a {
+        font-size: 20px;
+    }
+
+    /* Blog */
+    .Blog h2 {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .Blog_article {
+        grid-template-columns: 1fr;
+    }
+
+    article img {
+        margin-bottom: 10px;
+        border: 3px solid #FF4A8C;
+    }
+
+    .article_none {
+        display: none;
+    }
+
+    .Blog p {
+        font-size: 14px;
+        margin-left: 10px;
+        margin-bottom: 25px;
+    }
+
+    .Blog h3 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .Blog a {
+        font-size: 16px;
+        border: 3px solid #FF4A8C;
+        width: 300px;
+        padding: 10px 0;
+        margin-bottom: 35px;
+    }
+
+    /* page */
+    .page .items {
+        margin-top: 45px;
+    }
+
+    .page .star {
+        width: 35px;
+    }
+
+    .page .circle {
+        width: 25px;
+        margin-left: 10px;
+    }
+
+    /* Category */
+    .Category h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .Category .category_nav {
+        gap: 15px;
+        margin-bottom: 150px;
+    }
+
+    .Category .button {
+        font-size: 12px;
+        padding: 5px 20px;
+    }
+
+    /* Profile */
+    .Profile h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .Profile img {
+        width: 75px;
+        border: 2px solid #FF4A8C;
+        margin-bottom: 20px;
+    }
+
+    .Profile p {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    /* comment */
+    .index_comment h3 {
+        font-size: 16px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+
+    .index_comment .index_post {
+        margin-bottom: 35px;
+    }
+
+    form {
+        width: 97%;
+        height: 150px;
+        border: 3px solid #ff4f9a;
+    }
+
+    form input[type="text"] {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    form input[type="submit"] {
+        right: 10px;
+        bottom: 7px;
+        font-size: 14px;
+    }
+
+    /* footer */
+    footer p {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+
+    /*single.html
+    --------------------------------*/
+    /* Blog */
+    .blog_single h2 {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .blog_single p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .blog_single h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .blog_single img {
+        border: 3px solid #FF4A8C;
+        margin-bottom: 15px;
+    }
+
+    /* comment */
+    .single_comment {
+        margin-bottom: 80px;
+    }
+
+    .single_comment h3 {
+        font-size: 16px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+
+}
